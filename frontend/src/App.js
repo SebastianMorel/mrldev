@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [animate, setAnimate] = useState(false);
@@ -58,15 +61,15 @@ function App() {
       <div className={`name ${showName ? 'show-name' : ''}`}>sebastian</div>
       <div className={`title ${showTitle ? 'show-title' : ''}`}>M.Sc. Industrial Management</div>
       <div className={`social-links ${showSocial ? 'show-social' : ''}`}>
-        <a href="https://github.com/SebastianMorel" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/morels/" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:sebastian.morel@hotmail.se?subject=mrl.dev | <subject>">
-          <i className="fas fa-envelope"></i>
-        </a>
+      <a href="https://github.com/SebastianMorel" target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <a href="https://www.linkedin.com/in/morels/" target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
+      <a href="mailto:sebastian.morel@hotmail.se?subject=mrl.dev | <subject>">
+        <FontAwesomeIcon icon={faEnvelope} />
+      </a>
       </div>
       <div className={`projects ${showProjects ? 'show-projects' : ''}`}>
           <span className="project-title">&gt;projects</span>
@@ -76,7 +79,7 @@ function App() {
             </a> probability calculators
             <br></br>
             <a href="#" onClick={copyToClipboard} className="project-name">
-              &gt;&gt;<span className="highlight">mc.</span><span className="normal-color">mrl.dev</span>
+              <span className="highlight">&gt;&gt;mc.</span><span className="normal-color">mrl.dev</span>
               <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
             </a> minecraft server [WIP]
             <br></br>
