@@ -62,13 +62,19 @@ function App() {
       <div className={`title ${showTitle ? 'show-title' : ''}`}>M.Sc. Industrial Management</div>
       <div className={`social-links ${showSocial ? 'show-social' : ''}`}>
       <a href="https://github.com/SebastianMorel" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faGithub} />
+        <i>
+            <FontAwesomeIcon icon={faGithub} />
+        </i>
       </a>
       <a href="https://www.linkedin.com/in/morels/" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
+        <i>
+          <FontAwesomeIcon icon={faLinkedin} />
+        </i>
+        </a>
       <a href="mailto:sebastian.morel@hotmail.se?subject=mrl.dev | <subject>">
-        <FontAwesomeIcon icon={faEnvelope} />
+        <i>
+            <FontAwesomeIcon icon={faEnvelope} />
+        </i>
       </a>
       </div>
       <div className={`projects ${showProjects ? 'show-projects' : ''}`}>
