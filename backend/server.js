@@ -4,8 +4,10 @@ const app = express();
 const port = process.env.PORT || 3001;
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mrldb', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://mrldev:' + process.env.MONGODB_PASSWORD + '@mrldbcluster.4aixyfa.mongodb.net/?retryWrites=true&w=majority'
+, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const postSchema = new mongoose.Schema({
   title: String,
@@ -14,9 +16,11 @@ const postSchema = new mongoose.Schema({
 
 const Post = mongoose.model('Post', postSchema);
 
-app.use(cors({
-  origin: 'https://mrldev-5537abc1f826.herokuapp.com/' // replace with the URL of your frontend
-}));
+const isProduction = process.env.NODE_ENV === 'production';
+const origin = {
+  origin: isProduction ? 'https://mrl.dev' : 'http://localhost:3000',
+};
+app.use(cors(origin));
 
 // Add these two lines
 app.use(express.json());
