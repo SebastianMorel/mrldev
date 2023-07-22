@@ -59,6 +59,7 @@ function App() {
       <div className={`title ${showTitle ? 'show-title' : ''}`}>M.Sc. Industrial Management</div>
       <div className={`social-links ${showSocial ? 'show-social' : ''}`}>
         <a href="https://github.com/SebastianMorel" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon="fab fa-github" />
           <i className="fab fa-github"></i>
         </a>
         <a href="https://www.linkedin.com/in/morels/" target="_blank" rel="noopener noreferrer">
