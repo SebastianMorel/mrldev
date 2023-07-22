@@ -1,0 +1,5 @@
+name: "mrldev"
+cores: "2"
+memory: "4096"
+storage: "12"
+tech_stack: "docker:latest"
