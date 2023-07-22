@@ -1,0 +1,164 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #202020;
+  padding-top: 5vh;
+  overflow: hidden;
+}
+
+body {
+  font-size: 1vw;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 14.125vh;
+  font-size: 2.625em;
+  transition: all 1s;
+}
+
+.letter, .hidden, .dev {
+  transition: all 1s;
+  background-color: #202020;
+}
+
+.letter, .dev {
+  color: #7f7f7f;
+}
+
+.hidden {
+  color: #f2f2f2;
+  opacity: 0;
+  margin: 0 -0.2em;
+}
+
+.dev {
+  font-size: 0.5em;
+  margin-left: 0.1em;
+  margin-bottom: 0.3em;
+  opacity: 1;
+}
+
+.r-adjust {
+  margin-left: -0.15em;
+}
+
+.name, .title, .social-links, .projects {
+  font-size: 0.375em;
+  color: #f2f2f2;
+  position: absolute;
+  left: 0.15em;
+  opacity: 0;
+}
+
+.name {
+  bottom: 0.8em;
+  transition: all 1s;
+}
+
+.title {
+  top: 95%;
+  opacity: 0;
+  transition: top 1s 2s, opacity 1s 2s;
+}
+
+.social-links {
+  top: 115%;
+  display: flex;
+  justify-content: center;
+  gap: 1.8em;
+  transition: top 1s 2s;
+}
+
+.projects {
+  top: 150%;
+  transition: top 1s 3s;
+  width: 100vh;
+}
+
+.animate .letter {
+  margin: 0 0em;
+}
+
+.animate .hidden, .animate .title, .animate .social-links, .animate .projects {
+  opacity: 1;
+}
+
+.animate .dev {
+  opacity: 0;
+}
+
+.show-name {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.social-links i, .project-name {
+  color: #f2f2f2;
+  font-size: 1em;
+}
+
+.project-title {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.project-name {
+  font-weight: bold;
+}
+
+.highlight {
+  color: #f2f2f2;
+}
+
+.normal-color {
+  color: #7f7f7f;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 30vh;
+  font-size: 10em; /* Default size for larger screens */
+  transition: all 1s;
+}
+
+/* When the viewport is 600px or less, decrease the font size */
+@media screen and (max-width: 600px) {
+  .logo-container {
+    font-size: 5em; /* Smaller size for mobile screens */
+  }
+}
+
+.clipboard-message {
+  position: absolute;
+  background-color: #202020;
+  color: #f2f2f2;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5em;
+  font-size: 0.5em;
+  margin-top: -2em;
+  margin-left: -11em;
+  transition: opacity 0.5s;
+}
+
+.hide-message {
+  opacity: 0;
+}
+
+.show-message {
+  opacity: 1;
+}
+
+.project-name:hover .clipboard-message {
+  opacity: 1;
+}
