@@ -1,24 +1,26 @@
-# Use an official Node runtime as a base image
+# Start with an official Node runtime as the base image
 FROM node:14
 
-# Set the working directory in the container to /app
+# Designate /app as the workspace in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Move package.json and package-lock.json into the workspace
 COPY package*.json ./
 
-# Install any needed packages specified in package.json
+# Execute npm install to install the dependencies listed in package.json
 RUN npm install
 
-# Bundle app source
+# Incorporate the app source into the container
 COPY . .
 
-# Make port 3000 available to the outside world
+# Make the container's port 3000 accessible externally
 EXPOSE 3000
 
-# Build the app
+# Execute the app's build process
 RUN npm run build
 
-# Serve the app using serve
+# Install serve globally using npm to serve the app
 RUN npm install -g serve
-CMD serve -s build -l 3000
+
+# Run serve command in shell form to ensure PATH is sourced
+CMD ["sh", "-c", "serve -s build -l $PORT"]
