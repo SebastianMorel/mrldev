@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [animate, setAnimate] = useState(false);
@@ -31,7 +31,7 @@ function App() {
         return () => clearTimeout(titleTimer);
       }, 1000);
       return () => clearTimeout(nameTimer);
-    }, 2000);
+    }, 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -70,6 +70,11 @@ function App() {
         <i>
           <FontAwesomeIcon icon={faLinkedin} />
         </i>
+        </a>
+        <a href="/SebastianMorelCV.pdf" target="_blank" rel="noopener noreferrer">
+        <i>
+          <FontAwesomeIcon icon={faFileAlt} />
+          </i>
         </a>
       <a href="mailto:sebastian.morel@hotmail.se?subject=mrl.dev | <subject>">
         <i>

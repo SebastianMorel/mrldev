@@ -3,41 +3,49 @@ html {
     align-items: flex-start;
     background: #202020;
     height: 100%;
+    width: 100%;
     margin: 0;
-    overflow: hidden;
+    overflow-y: hidden;
     padding: 5vh 0 0;
 }
+
 .logo-container,
 body,
 html {
     display: flex;
     justify-content: center;
 }
+
 .logo-container {
     align-items: flex-end;
     font-size: 10em;
     height: 30vh;
     position: relative;
-    transition: all 1s;
+    transition: all 0.75s;
 }
+
 @media screen and (max-width: 600px) {
     .logo-container {
         font-size: 5em;
     }
 }
+
 .normal-color {
     color: #7f7f7f;
 }
+
 .dev,
 .hidden,
 .letter {
     background-color: #202020;
-    transition: all 1s;
+    transition: all 0.75s;
 }
+
 .dev,
 .letter {
     color: #7f7f7f;
 }
+
 .hidden {
     color: #f2f2f2;
     margin: 0 -0.2em;
@@ -71,24 +79,24 @@ html {
 }
 .name {
     bottom: 0.8em;
-    transition: all 1s;
+    transition: all 0.75s;
 }
 .title {
     top: 95%;
 }
 .social-links,
 .title {
-    transition: opacity 1s 2s;
+    transition: opacity 0.75s 1.75s;
 }
 .social-links {
     display: flex;
-    gap: 1.8em;
+    gap: 1.1em;
     justify-content: center;
     top: 115%;
 }
 .projects {
     top: 150%;
-    transition: opacity 1s 3s;
+    transition: opacity 0.75s 2.75s;
     width: 100vh;
 }
 .animate .letter {
