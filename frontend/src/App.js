@@ -92,7 +92,11 @@ function App() {
             <a href="#" onClick={copyToClipboard} className="project-name">
               <span className="highlight">&gt;&gt;mc.</span><span className="normal-color">mrl.dev</span>
               <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
-            </a> minecraft server [WIP]
+            </a> minecraft server
+            <br></br>
+            <a href="stream.mrl.dev" target="_blank" rel="noopener noreferrer">
+                <span className="project-name">&gt;&gt;<span className="highlight">stream.</span><span className="normal-color">mrl.dev</span></span>
+            </a> streaming
             <br></br>
             <a href="#" target="_blank" rel="noopener noreferrer">
                 <span className="project-name">&gt;&gt;<span className="highlight">img.</span><span className="normal-color">mrl.dev</span></span>
