@@ -85,9 +85,14 @@ function App() {
       <div className={`projects ${showProjects ? 'show-projects' : ''}`}>
           <span className="project-title">&gt;projects</span>
           <div className="project">
-            <a href="https://stat.mrl.dev/" target="_blank" rel="noopener noreferrer">
-                <span className="project-name">&gt;&gt;<span className="highlight">stat.</span><span className="normal-color">mrl.dev</span></span>
-            </a> probability calculators
+            <a href="#" onClick={copyToClipboard} className="project-name">
+              <span className="highlight">&gt;&gt;mc.</span><span className="normal-color">mrl.dev</span>
+              <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
+            </a> minecraft server
+            <br></br>
+            <a href="stream.mrl.dev" target="_blank" rel="noopener noreferrer">
+                <span className="project-name">&gt;&gt;<span className="highlight">stream.</span><span className="normal-color">mrl.dev</span></span>
+            </a> streaming
             <br></br>
             <a href="#" onClick={copyToClipboard} className="project-name">
               <span className="highlight">&gt;&gt;mc.</span><span className="normal-color">mrl.dev</span>
