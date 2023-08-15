@@ -94,7 +94,7 @@ function App() {
               <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
             </a> minecraft server
             <br></br>
-            <a href="stream.mrl.dev" target="_blank" rel="noopener noreferrer">
+            <a href="https://stream.mrl.dev/" target="_blank" rel="noopener noreferrer">
                 <span className="project-name">&gt;&gt;<span className="highlight">stream.</span><span className="normal-color">mrl.dev</span></span>
             </a> streaming
             <br></br>
