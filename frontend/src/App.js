@@ -1,8 +1,86 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faGithub, 
+  faLinkedin
+} from "@fortawesome/free-brands-svg-icons";
+import { 
+  faFileAlt, 
+  faEnvelope 
+} from "@fortawesome/free-solid-svg-icons";
+
+
+const logos = {
+  django: { 
+    src: require('./logos/django-logo.svg').default, 
+    link: "https://www.djangoproject.com/"
+  },
+  docker: { 
+    src: require('./logos/docker-logo.svg').default, 
+    link: "https://www.docker.com/"
+  },
+  hardhat: { 
+    src: require('./logos/hardhat-logo.svg').default, 
+    link: "https://hardhat.org/"
+  },
+  heroku: { 
+    src: require('./logos/heroku-logo.svg').default, 
+    link: "https://www.heroku.com/"
+  },
+  jellyfin: { 
+    src: require('./logos/jellyfin-logo.svg').default, 
+    link: "https://jellyfin.org/"
+  },
+  mongodb: { 
+    src: require('./logos/mongodb-logo.svg').default, 
+    link: "https://www.mongodb.com/"
+  },
+  nginx: { 
+    src: require('./logos/nginx-logo.svg').default, 
+    link: "https://www.nginx.com/"
+  },
+  proxmox: { 
+    src: require('./logos/proxmox-logo.svg').default, 
+    link: "https://www.proxmox.com/"
+  },
+  python: { 
+    src: require('./logos/python-logo.svg').default, 
+    link: "https://www.python.org/"
+  },
+  react: { 
+    src: require('./logos/react-logo.svg').default, 
+    link: "https://reactjs.org/"
+  },
+  ubuntu: { 
+    src: require('./logos/ubuntu-logo.svg').default, 
+    link: "https://ubuntu.com/server/"
+  },
+  vaulthunters: { 
+    src: require('./logos/vh-logo.svg').default, 
+    link: "https://vaulthunters.gg/"
+  }
+};
+
+const projectLogos = {
+  "stat.mrl.dev": ["django", "python", "heroku"],
+  "mc.mrl.dev": ["proxmox", "ubuntu", "vaulthunters"],
+  "stream.mrl.dev": ["jellyfin", "nginx", "docker"],
+  "img.mrl.dev": ["hardhat", "react", "mongodb"],
+};
+
+function renderLogosForProject(project) {
+  return projectLogos[project].map(logoName => (
+    <a href={logos[logoName].link} target="_blank" rel="noopener noreferrer" key={logoName}>
+      <img 
+        src={logos[logoName].src} 
+        alt={`${logoName} logo`} 
+        style={{ height: '1em', width: 'auto', verticalAlign: 'middle', marginRight: '5px' }}
+      />
+    </a>
+  ));
+}
+
 
 function App() {
   const [animate, setAnimate] = useState(false);
@@ -85,22 +163,25 @@ function App() {
       <div className={`projects ${showProjects ? 'show-projects' : ''}`}>
           <span className="project-title">&gt;projects</span>
           <div className="project">
-            <a href="#" onClick={copyToClipboard} className="project-name">
-              <span className="highlight">&gt;&gt;mc.</span><span className="normal-color">mrl.dev</span>
+          {renderLogosForProject("stat.mrl.dev")}
+          <a href="https://stat.mrl.dev/" target="_blank" rel="noopener noreferrer">
+              stat.<span className="normal-color">mrl.dev</span>
+            </a> probability calculators
+            <br></br>
+            {renderLogosForProject("mc.mrl.dev")}
+              <a href="#" onClick={copyToClipboard}>
+              mc.<span className="normal-color">mrl.dev</span>
               <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
             </a> minecraft server
             <br></br>
-            <a href="stream.mrl.dev" target="_blank" rel="noopener noreferrer">
-                <span className="project-name">&gt;&gt;<span className="highlight">stream.</span><span className="normal-color">mrl.dev</span></span>
+            {renderLogosForProject("stream.mrl.dev")}
+            <a href="https://stream.mrl.dev/" target="_blank" rel="noopener noreferrer">
+                stream.<span className="normal-color">mrl.dev</span>
             </a> streaming
             <br></br>
-            <a href="#" onClick={copyToClipboard} className="project-name">
-              <span className="highlight">&gt;&gt;mc.</span><span className="normal-color">mrl.dev</span>
-              <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
-            </a> minecraft server [WIP]
-            <br></br>
+            {renderLogosForProject("img.mrl.dev")}
             <a href="#" target="_blank" rel="noopener noreferrer">
-                <span className="project-name">&gt;&gt;<span className="highlight">img.</span><span className="normal-color">mrl.dev</span></span>
+                img.<span className="normal-color">mrl.dev</span>
             </a> image storage [WIP]
         </div>
       </div>
