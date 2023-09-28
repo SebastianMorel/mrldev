@@ -10,6 +10,7 @@ import {
   faEnvelope 
 } from "@fortawesome/free-solid-svg-icons";
 
+
 const logos = {
   django: { 
     src: require('./logos/django-logo.svg').default, 
