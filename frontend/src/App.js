@@ -55,6 +55,14 @@ const logos = {
     src: require('./logos/ubuntu-logo.svg').default, 
     link: "https://ubuntu.com/server/"
   },
+  h5ai: { 
+    src: require('./logos/h5ai-logo.svg').default, 
+    link: "https://larsjung.de/h5ai/"
+  },
+  samba: { 
+    src: require('./logos/samba-logo.svg').default, 
+    link: "https://www.samba.org/"
+  },
   php: { 
     src: require('./logos/php-logo.svg').default, 
     link: "https://www.php.net/"
@@ -67,7 +75,7 @@ const logos = {
 
 const projectLogos = {
   "stat.mrl.dev": ["django", "python", "heroku"],
-  "mc.mrl.dev": ["proxmox", "ubuntu", "vaulthunters"],
+  "files.mrl.dev": ["ubuntu", "h5ai", "samba"],
   "stream.mrl.dev": ["jellyfin", "nginx", "docker"],
   "search.mrl.dev": ["php", "nginx"],
   "img.mrl.dev": ["hardhat", "react", "mongodb"],
@@ -79,7 +87,6 @@ function App() {
   const [showTitle, setShowTitle] = useState(false);
   const [showSocial, setShowSocial] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
   const [projectStatuses, setProjectStatuses] = useState({});
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
@@ -130,7 +137,6 @@ function App() {
 
 useEffect(() => {
   Object.keys(projectLogos).forEach(domain => checkStatus(domain));
-  
   const timer = setTimeout(() => {
     setAnimate(true);
     const nameTimer = setTimeout(() => {
@@ -154,22 +160,6 @@ useEffect(() => {
     clearTimeout(timer);
   };
 }, []);
-
-
-  const copyToClipboard = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText('mc.mrl.dev:25597');
-  
-    const otherLinks = document.querySelectorAll('.project-name:not(:hover)');
-    otherLinks.forEach(link => link.style.pointerEvents = 'none');
-  
-    setShowMessage(true);
-  
-    setTimeout(() => {
-      setShowMessage(false);
-      otherLinks.forEach(link => link.style.pointerEvents = '');
-    }, 1000);
-  };
 
   return (
     <div className={`logo-container ${animate ? 'animate' : ''}`}>
@@ -211,11 +201,10 @@ useEffect(() => {
               stat.<span className="normal-color">mrl.dev</span>
             </a> probability calculators
             <br></br>
-            {renderLogosForProject("mc.mrl.dev")}
-              <a href="#" onClick={copyToClipboard}>
-              mc.<span className="normal-color">mrl.dev</span>
-              <span className={`clipboard-message ${showMessage ? 'show-message' : ''}`}>Copied to clipboard!</span>
-            </a> minecraft server
+            {renderLogosForProject("files.mrl.dev")}
+            <a href="https://files.mrl.dev/" target="_blank" rel="noopener noreferrer">
+              files.<span className="normal-color">mrl.dev</span>
+            </a> my files
             <br></br>
             {renderLogosForProject("stream.mrl.dev")}
             <a href="https://stream.mrl.dev/" target="_blank" rel="noopener noreferrer">
