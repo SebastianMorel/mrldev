@@ -1,5 +1,6 @@
 // server.js
 const express = require('express');
+const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3001;
 const cors = require('cors');
@@ -22,12 +23,31 @@ const origin = {
 };
 app.use(cors(origin));
 
-// Add these two lines
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
+});
+
+app.get('/check-status', async (req, res) => {
+  const url = req.query.url;
+  try {
+    await axios.get(url);
+    res.json({ status: 'up' });
+  } catch (error) {
+    console.error(error);  // Log the error
+    res.json({ status: 'down' });
+  }
+});
+
+app.get('/posts', async (req, res) => {
+  try {
+    const posts = await Post.find({});
+    res.send(posts);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 app.listen(port, function() {
@@ -41,14 +61,5 @@ app.post('/posts', async (req, res) => {
     res.status(201).send(newPost);
   } catch (error) {
     res.status(400).send(error);
-  }
-});
-
-app.get('/posts', async (req, res) => {
-  try {
-    const posts = await Post.find({});
-    res.send(posts);
-  } catch (error) {
-    res.status(500).send(error);
   }
 });
